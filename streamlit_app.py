@@ -474,7 +474,7 @@ else:
 
     def create_download_link(val, filename):
         b64 = base64.b64encode(val)  # val looks like b'...'
-        return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download {filename}</a>'
+        return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download {filename}.pdf</a>'
 
     if export_as_pdf:
         try:
