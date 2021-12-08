@@ -39,17 +39,16 @@ def get_text(token, transcribe_id):
     result = requests.get(endpoint, headers= headers).json()
     return result
 
-# Our third function will call both of the previous functions successively.
+# The third function will call both of the previous functions successively.
 
 # This function will also be connected to the “Upload” button in our Streamlit UI. The function has only one parameter: the file object. The function will do the following
 
-#     It will load the API token from our .env file.
+#     It will load the API token from our st.secrets dictionary.
 #     It will use the token to call the previously defined functions
 #     It will return the transcription ID
 
 def upload_file(file_obj):
-    load_dotenv()
-    token = os.getenv("API_TOKEN")
+    token = st.secrets["API_TOKEN"]
     file_url = get_url(token,file_obj)
     transcribe_id = get_transcribe_id(token,file_url)
     return token,transcribe_id
