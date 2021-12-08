@@ -1,5 +1,6 @@
 from pickle import STOP
 from nltk import text
+import nltk
 nltk.download('wordnet')
 nltk.download('punkt')
 import streamlit as st
