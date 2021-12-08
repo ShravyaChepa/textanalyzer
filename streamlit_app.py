@@ -443,18 +443,18 @@ elif nav_button == 'Text summarization':
             
             st.write(textrank_summary)
 
-            if textrank_summary == "":
+#             if textrank_summary == "":
 
-                #use lsa alg
-                no_of_sentences = st.number_input(label="Number of sentences",min_value=2, max_value=10,step=1)
-                parser = PlaintextParser.from_string(usertext_input, Tokenizer('english'))
+#                 #use lsa alg
+#                 no_of_sentences = st.number_input(label="Number of sentences",min_value=2, max_value=10,step=1)
+#                 parser = PlaintextParser.from_string(usertext_input, Tokenizer('english'))
 
-                #creating the summarizer
-                lsa_summarizer = LsaSummarizer()
-                lsa_summary = lsa_summarizer(parser.document, no_of_sentences)
+#                 #creating the summarizer
+#                 lsa_summarizer = LsaSummarizer()
+#                 lsa_summary = lsa_summarizer(parser.document, no_of_sentences)
 
-                for sentence in lsa_summary:
-                    st.write(sentence)
+#                 for sentence in lsa_summary:
+#                     st.write(sentence)
 
             
 
