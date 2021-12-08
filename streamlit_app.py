@@ -392,7 +392,7 @@ elif nav_button == 'Title generation':
 
 # text summarization
 elif nav_button == 'Text summarization':
-
+    no_of_sentences = st.number_input(label="Number of sentences",min_value=2, max_value=10,step=1)
     if st.button(label="summarize"):
 
         if usertext_input == '':
@@ -446,7 +446,7 @@ elif nav_button == 'Text summarization':
 #             if textrank_summary == "":
 
                 #use lsa alg
-              no_of_sentences = st.number_input(label="Number of sentences",min_value=2, max_value=10,step=1)
+              
               parser = PlaintextParser.from_string(usertext_input, Tokenizer('english'))
 
                 #creating the summarizer
