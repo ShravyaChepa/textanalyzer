@@ -257,7 +257,7 @@ elif nav_button == 'Readability scores':
     with c5:
         score_type3 = st.checkbox('Dale-Chall readability score')
     with c6:
-        st.write("It uses a lookup table of the most commonly used 3000 English words. It can be used as a grade formula. For example a score of 9.3 means that a ninth grader would be able to read the document")
+        st.write("It uses a lookup table of the most commonly used 3000 English words. It can be used as a grade formula. For example a score of 9.3 means that a ninth grader would be able to read the document.")
     
     #compute and display readability scores
     if st.button(label="compute"):
