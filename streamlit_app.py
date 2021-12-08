@@ -399,62 +399,62 @@ elif nav_button == 'Text summarization':
             st.text("Please enter some text")
         else:
 
-            textrank_summary = ''
-            #tokenizing the text
-            stop_words = set(stopwords.words("english")) 
-            words = word_tokenize(usertext_input)
-            # creating a frequency table to keep the score of each word
-            freq_table = dict()
-            for word in words:
-                word = word.lower()
-                if word in stop_words:
-                    continue
-                if word in freq_table:
-                    freq_table[word] +=1
-                else:
-                    freq_table[word] = 1
+#             textrank_summary = ''
+#             #tokenizing the text
+#             stop_words = set(stopwords.words("english")) 
+#             words = word_tokenize(usertext_input)
+#             # creating a frequency table to keep the score of each word
+#             freq_table = dict()
+#             for word in words:
+#                 word = word.lower()
+#                 if word in stop_words:
+#                     continue
+#                 if word in freq_table:
+#                     freq_table[word] +=1
+#                 else:
+#                     freq_table[word] = 1
 
-            #creating a dictionary to keep the score of each sentence
-            sentences = sent_tokenize(usertext_input)
-            sentence_value = dict()
+#             #creating a dictionary to keep the score of each sentence
+#             sentences = sent_tokenize(usertext_input)
+#             sentence_value = dict()
 
-            for sentence in sentences:
-                for word, freq in freq_table.items():
-                    if word in sentence.lower():
-                        if sentence in sentence_value:
-                            sentence_value[sentence] += freq
-                        else:
-                            sentence_value[sentence] = freq
+#             for sentence in sentences:
+#                 for word, freq in freq_table.items():
+#                     if word in sentence.lower():
+#                         if sentence in sentence_value:
+#                             sentence_value[sentence] += freq
+#                         else:
+#                             sentence_value[sentence] = freq
 
-            sum_values = 0
-            for sentence in sentence_value:
-                sum_values += sentence_value[sentence]
+#             sum_values = 0
+#             for sentence in sentence_value:
+#                 sum_values += sentence_value[sentence]
 
 
-            # average value of a sentence from the original text
+#             # average value of a sentence from the original text
 
-            average = int(sum_values/len(sentence_value))
+#             average = int(sum_values/len(sentence_value))
 
-            #storing sentences into our summary
-            for sentence in sentences:
-                if ( sentence in sentence_value) and (sentence_value[sentence] > (1.2 * average)):
-                    textrank_summary += " " + sentence
-                    st.write(textrank_summary)
+#             #storing sentences into our summary
+#             for sentence in sentences:
+#                 if ( sentence in sentence_value) and (sentence_value[sentence] > (1.2 * average)):
+#                     textrank_summary += " " + sentence
+#                     st.write(textrank_summary)
             
-            st.write(textrank_summary)
+#             st.write(textrank_summary)
 
 #             if textrank_summary == "":
 
-#                 #use lsa alg
-#                 no_of_sentences = st.number_input(label="Number of sentences",min_value=2, max_value=10,step=1)
-#                 parser = PlaintextParser.from_string(usertext_input, Tokenizer('english'))
+                #use lsa alg
+              no_of_sentences = st.number_input(label="Number of sentences",min_value=2, max_value=10,step=1)
+              parser = PlaintextParser.from_string(usertext_input, Tokenizer('english'))
 
-#                 #creating the summarizer
-#                 lsa_summarizer = LsaSummarizer()
-#                 lsa_summary = lsa_summarizer(parser.document, no_of_sentences)
+                #creating the summarizer
+              lsa_summarizer = LsaSummarizer()
+              lsa_summary = lsa_summarizer(parser.document, no_of_sentences)
 
-#                 for sentence in lsa_summary:
-#                     st.write(sentence)
+              for sentence in lsa_summary:
+                  st.write(sentence)
 
             
 
