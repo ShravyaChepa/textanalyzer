@@ -104,6 +104,7 @@ A tool to make your essays, speeches, stories, poems, papers and reports better!
 """)
 
 #sidebar (menu)
+st.sidebar.image(image,use_column_width=False,width=70)
 st.sidebar.title("Menu")
 nav_button = st.sidebar.radio("", (
                                   'Speech to text',
