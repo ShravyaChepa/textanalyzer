@@ -358,20 +358,24 @@ elif nav_button == 'Definitions':
 elif nav_button == 'Synonyms and antonyms': 
 
     sa_word = st.text_input(label="Enter a word:")
+ 
     if st.button("synonyms and antonyms"):
-        synonyms = []
-        for syn in wordnet.synsets(sa_word):
-            for lm in syn.lemmas():
-                synonyms.append(lm.name())
-        st.write("Synonyms:")
-        st.markdown(synonyms)
-        antonyms = []
-        for syn in wordnet.synsets(sa_word):
-            for lm in syn.lemmas():
-                if lm.antonyms():
-                    antonyms.append(lm.antonyms()[0].name())
-        st.write("Antonyms:")
-        st.markdown(antonyms)
+        if usertext_input == '':
+            st.text("Please enter some text")
+        else:
+            synonyms = []
+            for syn in wordnet.synsets(sa_word):
+                for lm in syn.lemmas():
+                    synonyms.append(lm.name())
+            st.write("Synonyms:")
+            st.markdown(synonyms)
+            antonyms = []
+            for syn in wordnet.synsets(sa_word):
+                for lm in syn.lemmas():
+                    if lm.antonyms():
+                        antonyms.append(lm.antonyms()[0].name())
+            st.write("Antonyms:")
+            st.markdown(antonyms)
 
 # title generation   
 elif nav_button == 'Title generation':
@@ -471,7 +475,7 @@ elif nav_button == 'Fact checking and Plagiarism':
 else:
     st.write('Make sure the desired version of your text is present in the textbox and click the download button to download a pdf file')
     save_file_name = st.text_input(label="Name file")
-    export_as_pdf = st.button(label="Export as PDF")
+    export_as_pdf = st.button(label="export as PDF")
 
     def create_download_link(val, filename):
         b64 = base64.b64encode(val)  # val looks like b'...'
