@@ -183,7 +183,7 @@ elif nav_button == 'Know your text':
         num_of_tris = st.number_input(label="Number of trigrams",min_value=1,max_value=20)    
     
 
-    if st.button(label="show stats"):
+    if st.button(label="stats"):
         if usertext_input == '':
             st.text("Please enter some text")
         else:
