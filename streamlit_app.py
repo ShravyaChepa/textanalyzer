@@ -134,6 +134,8 @@ if nav_button == 'Speech to text':
     if st.button("transcribe") :
 
         if file_object:
+            
+            st.audio(file_object, format="audio/wav", start_time=0)
             token, t_id = upload_file(file_object)
             result = {}
             # polling
